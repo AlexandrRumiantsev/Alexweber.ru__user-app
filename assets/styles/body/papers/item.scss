@@ -1,3 +1,8 @@
+html #comment_add input.error , 
+html #comment_add textarea.error{
+  outline: 1px solid red;
+}
+
 iframe{
 	width: 100%;
     left: 0;
