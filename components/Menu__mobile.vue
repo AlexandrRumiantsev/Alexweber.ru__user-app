@@ -28,7 +28,11 @@
 
 <script>
     import Vue from 'vue'
-
+    /**
+     * Компонент детализации статьи
+     *
+     * @property {activePage} функция для установка активности элемента меню
+    */
     export default {
         props: ['activePage'],
         name: 'Menu__mobile'

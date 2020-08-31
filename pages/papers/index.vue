@@ -41,6 +41,16 @@
 import { mapState } from "vuex";
 import { mapGetters } from 'vuex'
 
+/**
+  * Страница статей
+  *
+  * @property {papers} - элементы статей
+  * @property {allComments} - элементы комментариев
+  * @property {featuredPapers} - функция запроса к статьям
+  * @property {featuredComments} - функция запроса к комментариям
+  * @property {setCount} - вычисление кол-ва комментариев статьи
+*/
+
 export default {
   data() {
       return {

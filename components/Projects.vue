@@ -8,6 +8,11 @@
 import { mapState } from "vuex";
 import { mapGetters } from 'vuex'
 
+/**
+  * Компонент проектов
+  *
+  * @property {featuredProjects} запрос к API и получение данный по проектам
+*/
 export default {
   name: 'Project',
   data() {

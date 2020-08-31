@@ -44,6 +44,18 @@ import { mapState } from "vuex";
 import { mapGetters } from 'vuex'
 import { mapActions } from 'vuex'
 
+/**
+  * Страница детализация статьи
+  *
+  * @property {featuredPapers} - Запрос к АПИ, получение массива статей
+  * @property {featuredComments} - Запрос к АПИ, получение массива комментариев
+  * @property {addComments} - Функция для добавления комментария
+  * @property {comment_add} - Функция для добавления комментария
+  * @property {item} - Элемент компонента статьи
+  * @property {name_form} -  ref - связка с формой
+  * @property {comment_form} - ref - связка с формой
+*/
+
 export default {
   data() {
       return {
@@ -61,7 +73,7 @@ export default {
     ])
   },
   methods: {
-    ...mapActions(['addComments','refrashComments','feathComments']),
+    ...mapActions(['addComments','feathComments']),
     valid_form(el){
       if(el.value == ''){
           this.$data[el.name] = 0;

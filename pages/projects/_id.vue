@@ -14,6 +14,12 @@
 import { mapState } from "vuex";
 import { mapGetters } from 'vuex'
 
+/**
+  * Детализация проекта
+  *
+  * @property {item} - данные по выбранному проекту
+  * @property {featuredProjects} - функция запроса к проектам
+*/
 export default {
   data() {
       return {

@@ -38,6 +38,11 @@
     import Menu from '../components/Menu.vue';
     import Menu__mobile from '../components/Menu__mobile.vue';
     
+    /**
+     * Компонент детализации статьи
+     *
+     * @property {activePage} функция для установка активности элемента меню
+    */
     export default {
         props: ['activePage'],
         name: 'Menu',
