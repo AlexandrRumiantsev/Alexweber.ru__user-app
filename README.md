@@ -2,7 +2,16 @@
 
 | Название модуля       | краткое описание                | команда |
 | ------------- |:------------------:| -----:|
-|  | |   |
+|  jest | Модуль для тестирования приложения JEST|   npm install --save-dev jest |
+|  jest | Модуль для тестирования приложения JEST| npm install --save-dev babel-jest vue-jest |
+
+npm install --save-dev @babel/plugin-transform-modules-commonjs
+npm install --save-dev @vue/test-utils
+
+
+
+ Запуск тестов JEST - npm run unit
+
 
 
 # Макеты экранов приложения.

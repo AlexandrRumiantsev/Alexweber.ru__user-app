@@ -1,7 +1,7 @@
 <template>
   <div class="projects-list">
       <div class='project-box' v-for="n in this.projects" v-bind:key='n._id'>
-        <nuxt-link :text="n.name" :to="`/projects/${n._id}`"  class='project-container'
+        <nuxt-link :text="n.name + ' ' + n.discription" :to="`/projects/${n._id}`"  class='project-container'
         :style="'background: url(http://www.alexweber.ru/img/'+ n.image + ');'"">
         </nuxt-link>  
       </div>    

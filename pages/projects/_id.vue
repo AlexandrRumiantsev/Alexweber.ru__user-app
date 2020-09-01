@@ -2,10 +2,15 @@
   <div :id='this.item._id' 
         class='projects__detail detail'
         >
-        
     <img class='detail-img' :src="'http://www.alexweber.ru/img/'+ this.item.imageFull">    
     <div class='loader'>
-      <h1>{{ this.item.name }}</h1>
+      <h1>
+          <a 
+          :href="this.item.link"
+          >
+          {{ this.item.name }}
+          </a>
+      </h1>
     </div>    
   </div>
 </template>
