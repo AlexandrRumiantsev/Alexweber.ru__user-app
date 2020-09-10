@@ -3,15 +3,14 @@
         class='projects__detail detail'
         >
     <img class='detail-img' :src="'http://www.alexweber.ru/img/'+ this.item.imageFull">    
-    <div class='loader'>
-      <h1>
-          <a 
-          :href="this.item.link"
-          >
-          {{ this.item.name }}
-          </a>
-      </h1>
-    </div>    
+    <div class='loader'></div> 
+    <h1>
+      <a 
+        :href="this.item.link"
+      >
+        {{ this.item.name }}
+      </a>
+    </h1>   
   </div>
 </template>
 
@@ -37,12 +36,36 @@ export default {
     ])
   },
   mounted: function () {
+      console.log(this);
       let component = this;
       let id = window.location.href.split('/')[4];
       this.$store.getters.featuredProjects();
       this.$store.state.projects.projects.filter(function(el){
           if(el._id == id) component.item = el;
       })
+  },
+  head() {
+    return {
+        title: this.item.name,
+        meta: [
+          {
+            property: 'og:title',
+            content: this.item.name
+          },
+          {
+            property: 'og:type',
+            content: 'website'
+          },
+          {
+            property: 'og:url',
+            content: window.location.origin + '/projects/'+this.item._id
+          },
+          {
+            property: 'og:image',
+            content: 'http://www.alexweber.ru/img/'+this.item.image
+          }
+        ]
+    }
   }
 };
 </script>

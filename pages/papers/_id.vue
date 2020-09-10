@@ -127,11 +127,11 @@ export default {
           },
           {
             property: 'og:url',
-            content: this.url
+            content: 'http://www.alexweber.ru/papers/'+this.item._id
           },
           {
             property: 'og:image',
-            content: 'http://www.alexweber.ru/img/papers/'+this.item.link+'.jpg'
+            content: 'http://www.alexweber.ru/img/papers/'+this.item.link+'.html'
           }
         ]
   }

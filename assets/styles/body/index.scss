@@ -181,4 +181,30 @@ p {
   font-size:65px;
   font-family: 'Amatic SC', cursive;
 }
+@media (max-width: 1160px) {
+  .content__name.anim-name{
+      color:black;
+      display: contents;
+  }
+  #main-page h1{
+    color:black;
+  }
+}
 
+@media (max-width: 600px) {
+  #main-page h2 {
+    font-size: 45px;
+  }
+  #main-page h1{
+      font-size: 50px;
+  }
+  .content__skill-box div{
+    padding: 5px;
+  }
+}
+
+@media (max-width: 460px) {
+  .content__skill-box{
+     display: inline;
+  }
+}

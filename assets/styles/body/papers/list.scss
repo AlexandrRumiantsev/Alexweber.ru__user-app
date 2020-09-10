@@ -97,6 +97,11 @@ justify-content: center;
   color:white;
   font-size:18px;
 }
+@media (max-width: 1160px) {
+  #paper-page[data-v-6f4d55ba] {
+    margin-top: 0;
+  }
+}
 @media (max-width: 1055px) {
   #paper-page .papers-container {
     width: 100%;

@@ -3,23 +3,17 @@
       <nav class="nav">
       <input type="checkbox" class="nav__cb" id="menu-cb"/>
       <div class="nav__content">
-        <ul class="nav__items">
-          <li class="nav__item">
-            <span @click="activePage(1)" class="nav__item-text">
-              <a>Главная</a>
-            </span>
-          </li>
-          <li class="nav__item">
-            <span @click="activePage(2)" class="nav__item-text">
-             <a>Портфолио</a>
-            </span>
-          </li>
-          <li class="nav__item">
-            <span @click="activePage(3)" class="nav__item-text">
-             <a> Статьи</a>
-            </span>
-          </li>
-        </ul>
+        <div class="nav__items">
+            <nuxt-link class="nav__item" :to="`/`">
+              <img src='../assets/img/homepage.svg'>
+            </nuxt-link>
+            <nuxt-link class="nav__item" :to="`/projects`">
+              <img src='../assets/img/portfolio.svg'>
+            </nuxt-link>
+            <nuxt-link :to="`/papers`" class="nav__item">
+              <img src='../assets/img/document.svg'>
+            </nuxt-link>
+        </div>
       </div>
       <label class="nav__btn" for="menu-cb"></label>
     </nav>
