@@ -19,7 +19,6 @@ let store = {};
   // Enforce store modules
   store.modules = store.modules || {}
 
-  resolveStoreModules(require('../store/indexOLD.js'), 'indexOLD.js')
   resolveStoreModules(require('../store/modules/comments.js'), 'modules/comments.js')
   resolveStoreModules(require('../store/modules/papers.js'), 'modules/papers.js')
   resolveStoreModules(require('../store/modules/projects.js'), 'modules/projects.js')
@@ -30,7 +29,6 @@ let store = {};
     // Whenever any Vuex module is updated...
     module.hot.accept([
       '../store/index.js',
-      '../store/indexOLD.js',
       '../store/modules/comments.js',
       '../store/modules/papers.js',
       '../store/modules/projects.js',

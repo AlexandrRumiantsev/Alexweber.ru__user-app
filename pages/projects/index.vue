@@ -36,7 +36,34 @@ export default {
       let store = this.$store;
       store.getters.featuredProjects();
       this.projects = store.state.projects.projects;
-  }
+  },
+  head() {
+    return {
+        title: 'Александр Румянцев - Проекты',
+        meta: [
+          {
+            property: 'og:title',
+            content: 'Александр Румянцев - Проекты'
+          },
+          {
+            property: 'description',
+            content: 'Список реализованных проектов'
+          },
+          {
+            property: 'og:type',
+            content: 'website'
+          },
+          {
+            property: 'og:url',
+            content: 'http://alexweber.ru/projects'
+          },
+          {
+            property: 'og:image',
+            content: 'http://www.alexweber.ru/img/prev.jpeg'
+          }
+        ]
+    }
+    }
 };
 </script>
 

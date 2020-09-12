@@ -47,7 +47,33 @@
 
 <script>
 export default {
-
+  head() {
+    return {
+        title: 'Александр Румянцев - web developer',
+        meta: [
+          {
+            property: 'og:title',
+            content: 'Александр Румянцев - web developer'
+          },
+          {
+            property: 'description',
+            content: 'Персональный сайт веб разработчика - Александра Румянцева'
+          },
+          {
+            property: 'og:type',
+            content: 'website'
+          },
+          {
+            property: 'og:url',
+            content: 'http://alexweber.ru/'
+          },
+          {
+            property: 'og:image',
+            content: 'http://www.alexweber.ru/img/prev.jpeg'
+          }
+        ]
+    }
+    }
 };
 </script>
 

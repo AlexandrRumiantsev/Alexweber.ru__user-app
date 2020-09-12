@@ -12,8 +12,6 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_currencyfilter_e0c2928e from 'nuxt_plugin_currencyfilter_e0c2928e' // Source: ../plugins/currency-filter.js (mode: 'all')
-
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
 
@@ -183,10 +181,6 @@ async function createApp(ssrContext, config = {}) {
     }
   }
   // Plugin execution
-
-  if (typeof nuxt_plugin_currencyfilter_e0c2928e === 'function') {
-    await nuxt_plugin_currencyfilter_e0c2928e(app.context, inject)
-  }
 
   // Lock enablePreview in context
   if (process.static && process.client) {

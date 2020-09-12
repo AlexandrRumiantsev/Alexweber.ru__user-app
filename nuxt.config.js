@@ -15,27 +15,28 @@ const dynamicRoutes = async () => {
     const url = 'http://alexweber.ru:5000/';
 
     const resForProjects = await axios.get(
-      url + 'get_file_data_project'
+      url + 'data'
     )
 
     const resForPapers = await axios.get(
-      url + 'get_file_data_paper'
+      url + 'data_papers'
     )
 
-
+    //console.log(resForProjects.data)
     const routesForProject = resForProjects.data.map((project)=>{
-      let data = JSON.parse(project);
+      console.log(project)
+ 
       return {
-        route: `/projects/${data._id}`,
-        payload: data
+        route: `/projects/${project._id}`,
+        payload: project
       }
     })
 
     const routesForPaper = resForPapers.data.map((paper)=>{
-      let data = JSON.parse(paper);
+
       return {
-        route: `/papers/${data._id}`,
-        payload: data
+        route: `/papers/${paper._id}`,
+        payload: paper
       }
     })
 
@@ -49,9 +50,10 @@ const dynamicRoutes = async () => {
 
 export default {
   mode: 'spa',
-  /*router: {
+  /*
+  router: {
      base: './'
-  },*/
+  },
   /*
    ** Headers of the page
    */
@@ -91,7 +93,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [`~/plugins/currency-filter.js`],
+  plugins: [],
   /*
    ** Nuxt.js modules
    */

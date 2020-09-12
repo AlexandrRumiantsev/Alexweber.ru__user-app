@@ -91,7 +91,34 @@ export default {
          }
       });   
       
-  }
+  },
+  head() {
+    return {
+        title: 'Александр Румянцев - Статьи',
+        meta: [
+          {
+            property: 'og:title',
+            content: 'Александр Румянцев - Статьи'
+          },
+          {
+            property: 'description',
+            content: 'Блог разраблотчика'
+          },
+          {
+            property: 'og:type',
+            content: 'website'
+          },
+          {
+            property: 'og:url',
+            content: 'http://alexweber.ru/papers'
+          },
+          {
+            property: 'og:image',
+            content: 'http://www.alexweber.ru/img/prev.jpeg'
+          }
+        ]
+    }
+    }
 };
 </script>
 

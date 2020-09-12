@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style>
-@import '../assets/styles/header/menu.css';
+@import '../assets/styles/header/menu.scss';
 </style>
 
 
