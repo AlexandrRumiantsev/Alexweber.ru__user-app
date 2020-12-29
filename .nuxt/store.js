@@ -12,10 +12,6 @@ let store = {};
 
   // If store is an exported method = classic mode (deprecated)
 
-  if (typeof store === 'function') {
-    return console.warn('Classic mode for store/ is deprecated and will be removed in Nuxt 3.')
-  }
-
   // Enforce store modules
   store.modules = store.modules || {}
 
@@ -24,21 +20,6 @@ let store = {};
   resolveStoreModules(require('../store/modules/projects.js'), 'modules/projects.js')
 
   // If the environment supports hot reloading...
-
-  if (process.client && module.hot) {
-    // Whenever any Vuex module is updated...
-    module.hot.accept([
-      '../store/index.js',
-      '../store/modules/comments.js',
-      '../store/modules/papers.js',
-      '../store/modules/projects.js',
-    ], () => {
-      // Update `root.modules` with the latest definitions.
-      updateModules()
-      // Trigger a hot update in the store.
-      window.$nuxt.$store.hotUpdate(store)
-    })
-  }
 })()
 
 // createStore
@@ -88,10 +69,10 @@ function resolveStoreModules (moduleData, filename) {
   // If src is a known Vuex property
   if (VUEX_PROPERTIES.includes(moduleName)) {
     const property = moduleName
-    const storeModule = getStoreModule(store, namespaces, { isProperty: true })
+    const propertyStoreModule = getStoreModule(store, namespaces, { isProperty: true })
 
     // Replace state since it's a function
-    mergeProperty(storeModule, moduleData, property)
+    mergeProperty(propertyStoreModule, moduleData, property)
     return
   }
 

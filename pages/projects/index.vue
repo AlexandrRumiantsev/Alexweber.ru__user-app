@@ -2,7 +2,7 @@
   <div class="projects-list">
       <div class='project-box' v-for="n in this.projects" v-bind:key='n._id'>
         <nuxt-link :text="n.name + ' ' + n.discription" :to="`/projects/${n._id}`"  class='project-container'
-        :style="'background: url(http://www.alexweber.ru/img/'+ n.image + ');'"">
+        :style="'background: url(http://alexweber.ru/img/'+ n.image + ');'"">
         </nuxt-link>  
       </div>    
   </div>
@@ -34,31 +34,35 @@ export default {
   mounted: function () {
       let component = this;
       let store = this.$store;
-      store.getters.featuredProjects();
-      this.projects = store.state.projects.projects;
+      this.projects = store.getters.featuredProjects;
   },
   head() {
     return {
         title: 'Александр Румянцев - Проекты',
         meta: [
           {
-            property: 'og:title',
+            hid: 'og:title', 
+            name: 'og:title',
             content: 'Александр Румянцев - Проекты'
           },
           {
-            property: 'description',
+            hid: 'description' ,
+            name: 'description',
             content: 'Список реализованных проектов'
           },
           {
-            property: 'og:type',
+            hid: 'og:type',
+            name: 'og:type',
             content: 'website'
           },
           {
-            property: 'og:url',
+            hid: 'og:url',
+            name: 'og:url',
             content: 'http://alexweber.ru/projects'
           },
           {
-            property: 'og:image',
+            hid: 'og:image',
+            name: 'og:image',
             content: 'http://www.alexweber.ru/img/prev.jpeg'
           }
         ]

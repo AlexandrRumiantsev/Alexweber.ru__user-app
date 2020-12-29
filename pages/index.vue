@@ -52,23 +52,28 @@ export default {
         title: 'Александр Румянцев - web developer',
         meta: [
           {
-            property: 'og:title',
+            hid: 'og:title',
+            name: 'og:title',
             content: 'Александр Румянцев - web developer'
           },
           {
-            property: 'description',
+            hid: 'description',
+            name: 'description',
             content: 'Персональный сайт веб разработчика - Александра Румянцева'
           },
           {
-            property: 'og:type',
+            hid: 'og:type',
+            name: 'og:type',
             content: 'website'
           },
           {
-            property: 'og:url',
+            hid: 'og:url',
+            name: 'og:url',
             content: 'http://alexweber.ru/'
           },
           {
-            property: 'og:image',
+            hid: 'og:image',
+            name: 'og:image',
             content: 'http://www.alexweber.ru/img/prev.jpeg'
           }
         ]

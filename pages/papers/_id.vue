@@ -1,6 +1,6 @@
 <template>
   <div class='paper-page'>
-    <iframe :src="'http://alexweber.ru/papers/' + this.item.link + '.html'"></iframe>
+    <iframe :src="'http://alexweber.ru/papers/test.html'"></iframe>
     <section class='comments-box'>
       <h3 class='comments-box__title'>
         Комментарии к статье: {{ this.item.title }}
@@ -56,14 +56,17 @@ import { mapActions } from 'vuex'
   * @property {comment_form} - ref - связка с формой
 */
 
+const axios = require('axios');
+
 export default {
   data() {
       return {
         item: '',
         url: '',
-        comments: '',
+        //comments: '',
         name_form: 1,
-        comment_form: 1
+        comment_form: 1 ,
+        meta: {}
       }
     },
   computed: {
@@ -73,7 +76,7 @@ export default {
     ])
   },
   methods: {
-    ...mapActions(['addComments','feathComments']),
+    ...mapActions(['addComments','feathComments', 'load']),
     valid_form(el){
       if(el.value == ''){
           this.$data[el.name] = 0;
@@ -102,36 +105,43 @@ export default {
       }
   },
   mounted: function () {
+  console.log(this.$store.state);
       let component = this;
       let store = this.$store;
       let id = window.location.href.split('/')[4];
       component.featuredPapers(function(data){
          component.item = data[0];
-           component.feathComments( { function(){
-              console.log( 'x' ); 
-           } 
-         });
+         component.load();
       });
+
+      
+
+
+      
   },
   head() {
     return {
         title: this.item.title,
         meta: [
           {
-            property: 'og:title',
+            hid: 'og:title',
+            name: 'og:title',
             content: this.item.title
           },
           {
-            property: 'og:type',
-            content: this.item.discription
+            hid: 'og:type',
+            name: 'og:type',
+            content: 'article'
           },
           {
-            property: 'og:url',
+            hid: 'og:url',
+            name: 'og:url',
             content: 'http://www.alexweber.ru/papers/'+this.item._id
           },
           {
-            property: 'og:image',
-            content: 'http://www.alexweber.ru/img/papers/'+this.item.link+'.html'
+            hid: 'og:image',
+            name: 'og:image',
+            content: 'http://www.alexweber.ru/img/papers/' + this.item.img + '.jpg'
           }
         ]
   }

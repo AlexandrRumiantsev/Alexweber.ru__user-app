@@ -7,7 +7,8 @@ const state = {
 //  Объект для получения состояний в компоненте
 const getters = {
 	featuredProjects:  () =>{
-		return actions.feathProjects;
+	    actions.feathProjects();
+		return state.projects;
 	}
 }
 

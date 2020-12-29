@@ -1,5 +1,5 @@
 .loader{
-background: url(./planetloading.gif);
+background: url(/assets/styles/body/projects/planetloading.gif);
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -10,7 +10,7 @@ background: url(./planetloading.gif);
 }
 
 .loader a::before {
-  background-image: url(../../../img/hyperlink.svg);
+  background-image: url(/assets/img/hyperlink.svg);
       background-size: 25px 25px;
     display: inline-block;
     background-repeat: no-repeat;

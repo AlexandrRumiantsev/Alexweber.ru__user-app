@@ -1,7 +1,7 @@
 <template>
   <div id="paper-page">
     <nuxt-link 
-      v-for="n in this.$store.state.papers.papers"
+      v-for="n in this.papers"
      class='papers-container'
       :to="`/papers/${n._id}`"
       v-bind:key='n._id' 
@@ -27,9 +27,7 @@
           <i class="fa fa-comment" aria-hidden="true"></i> 
               <span class='item-btn__title'>
                {{ 
-                  setCount(
-                    n.title
-                  ) 
+                 count
                 }}
               </span>
       </div>
@@ -55,7 +53,8 @@ export default {
   data() {
       return {
         papers: '',
-        allComments: ''
+        allComments: '',
+        count: 0
       }
     },
   computed: {
@@ -67,7 +66,8 @@ export default {
   methods: {
     setCount(paper){
       let counter = '0';
-      for(let i = 0 ; i <  this.$store.state.comments.comments.length ; i++){
+      console.log(this);
+      for(let i = 0 ; i <  component.allComments.length ; i++){
             if(
               this.$store.state.comments.comments[i].paper == paper
             ) counter++;
@@ -79,16 +79,27 @@ export default {
 
       let component = this;
       let store = this.$store;
-      component.allComments = store.state.comments.comments;
-      console.log(this.$store);
-      store.getters.featuredPapers(function(){
-         store.getters.feathComments();
-         component.allComments = store.state.comments.comments;
 
-         component.papers = store.state.papers.papers;
-         for(let i = 0 ; i < store.state.papers.papers['length'] ; i++){
-            store.state.papers.papers[i].count = component.setCount(store.state.papers.papers[i].title);
-         }
+     
+      store.getters.featuredPapers(function(data){
+      
+       component.papers = data;
+  
+       let targetTitle = data[0].title;
+  
+            store.getters.feathComments( (data) => {
+                component.allComments = data;
+  
+                let counter = 0;
+                for(let i = 0 ; i < data['length'] ; i++){
+
+                    if(targetTitle == data[i].paper){
+                        component.count++
+                    }
+                }
+            
+            }); 
+         
       });   
       
   },
@@ -97,23 +108,28 @@ export default {
         title: 'Александр Румянцев - Статьи',
         meta: [
           {
-            property: 'og:title',
+            hid: 'og:title',
+            name: 'og:title',
             content: 'Александр Румянцев - Статьи'
           },
           {
-            property: 'description',
+            hid: 'description',
+            name: 'description',
             content: 'Блог разраблотчика'
           },
           {
-            property: 'og:type',
+            hid: 'og:type',
+            name: 'og:type',
             content: 'website'
           },
-          {
-            property: 'og:url',
+          { 
+            hid: 'og:url',
+            name: 'og:url',
             content: 'http://alexweber.ru/papers'
           },
           {
-            property: 'og:image',
+            hid: 'og:image',
+            name: 'og:image',
             content: 'http://www.alexweber.ru/img/prev.jpeg'
           }
         ]

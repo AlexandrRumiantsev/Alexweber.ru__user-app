@@ -2,7 +2,7 @@
   <div :id='this.item._id' 
         class='projects__detail detail'
         >
-    <img class='detail-img' :src="'http://www.alexweber.ru/img/'+ this.item.imageFull">    
+    <img class='detail-img' :src="'http://alexweber.ru/img/'+ this.item.imageFull">    
     <div class='loader'></div> 
     <h1>
       <a 
@@ -36,11 +36,10 @@ export default {
     ])
   },
   mounted: function () {
-      console.log(this);
       let component = this;
       let id = window.location.href.split('/')[4];
-      this.$store.getters.featuredProjects();
-      this.$store.state.projects.projects.filter(function(el){
+   
+      this.$store.getters.featuredProjects.filter(function(el){
           if(el._id == id) component.item = el;
       })
   },
@@ -49,19 +48,23 @@ export default {
         title: this.item.name,
         meta: [
           {
-            property: 'og:title',
+            hid: 'og:title',
+            name: 'og:title',
             content: this.item.name
           },
           {
-            property: 'og:type',
+            hid: 'og:type',
+            name: 'og:type',
             content: 'website'
           },
           {
-            property: 'og:url',
+            hid: 'og:url',
+            name: 'og:url',
             content: window.location.origin + '/projects/'+this.item._id
           },
           {
-            property: 'og:image',
+            hid: 'og:image',
+            name: 'og:image',
             content: 'http://www.alexweber.ru/img/'+this.item.image
           }
         ]

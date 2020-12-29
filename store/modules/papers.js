@@ -8,6 +8,7 @@ const state = {
 //  Объект для получения состояний в компоненте
 const getters = {
 	featuredPapers:  () =>{
+	    console.log('featuredPapers');
 		return actions.feathPapers;
 	}
 }

@@ -49,11 +49,16 @@ const dynamicRoutes = async () => {
 
 
 export default {
-  mode: 'spa',
+  mode: 'universal',
   /*
   router: {
      base: './'
   },
+  server: {
+    port: 80, // default: 3000
+    host: 'alexweber.ru' // default: localhost
+  },
+  */
   /*
    ** Headers of the page
    */
@@ -105,6 +110,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {} 
   }
 }
